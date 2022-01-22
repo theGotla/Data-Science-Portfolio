@@ -30,21 +30,25 @@ This dataset designed to understand the factors that lead a person to leave curr
 We have been provided with a ```Train (19158 x 14)``` & ```Test (2129 x 13)``` datasets. The dependant variable is `````"Target"`````
 ![Data Dictionary](Images/Data_Dictionary.PNG)
   
-## Variable Descriptions
-We can see the ```variable descriptions``` below
-![Variables](images/Variable_Notes.JPG)
 
 ## Methodology
 Now that we have understood what the problem statement is, let us follow a methodology to solve this. 
 
+### 0. Descriptive Analysis
+Let us first look at the class distribution for the number of job seekers in our train data set as shown below-
+![Missing](Images/Class_Distribution.PNG)
+
+Furthermore lets looks at the bivariate analysis of the other varaibles with the target variable
+![Missing](Images/BiVariate.PNG)
+
+
 ### 1. Data Pre Processing
 Let us check for the ```missing values``` for each variable first, and then we will impute them with the appropriate methods. 
-![Missing](Images/Nulls.PNG)
+![Missing](images/Missing_Train.PNG)
 
-#### Feature Elimination
-- Drop ```cabin``` variable due to high missing percentage
-- Drop ```fare``` because of **high correlation** with ```PClass```
-- Drop ```Ticket``` variable due to low value addition
+Furthermore, lets look at how the distribution is for the other variables for Job Vs Non-Job Seeker
+
+
 #### Missing Value Imputations (MVI)
 We have already dropped the ```cabin``` variable, so we have to impute the ```Age``` and ```Embarked``` variables. Age is a continuous variable and its distribution is below. From the figure we can say that ```Age``` is skewed.
 ![Age](images/Age_Dist.PNG)

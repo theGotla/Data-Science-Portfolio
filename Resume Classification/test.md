@@ -66,10 +66,9 @@ We seem from the above EDA that there is a class imbalance and to solve this we 
 
 
 #### Missing Value Imputations (MVI)
-For treating the missing values we have used K-Nearest Neighbours imputation with a K=6 to impute the categorical and continuous variables.This method seemed more appropriate as compared to mean imputation(for continuous variables) or mode imputation
-![Age](images/Age_Dist.PNG)
+For treating the missing values we have used K-Nearest Neighbours imputation with a K=6 to impute the categorical and continuous variables.This method seemed more appropriate as compared to mean imputation(for continuous variables) or mode imputation.
+![Age](Images/KNN.PNG)
 
-I have used the median value of ```Age``` for a `passenger class` and `gender` to impute the missing values.
 
 ### 2. Feature Engineering
 This is an import aspect of the methodology, because this is where the business intuition and domain expertise come in. And we all know how crucial these two are to make better predictions and to interpret the results of the model.  
@@ -119,29 +118,25 @@ All = 610 || Goods = 160 || Bads = 450 | All = 390 || Goods = 140 || Bads = 250
 We have `cleaned` the data and `derived` some variables so that we can make better predictions. So let us `predict` now. But we need to follow some steps to make a robust model and `avoid over-fitting` the data.
 
 #### Train and Validation Split
-The training data will be `randomly` split into `70:30` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
+The training data will be `randomly` split into `75:25` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
 #### Train Multiple Models
-I have explored `six` different techniques to train the model. Click on the links for literature review.
+I have explored `three` different techniques to train the model. Click on the links for literature review.
 - [Logistic Regression](https://www.analyticsvidhya.com/blog/2021/03/logistic-regression/)
-- [Support Vector Machines](https://www.analyticsvidhya.com/blog/2017/09/understaing-support-vector-machine-example-code/)
-- [Decision Trees](https://www.analyticsvidhya.com/blog/2016/04/tree-based-algorithms-complete-tutorial-scratch-in-python/)
 - [Random Forest](https://www.analyticsvidhya.com/blog/2021/03/introduction-to-random-forest-and-its-hyper-parameters/)
-- [Light Gradient Boosting](https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/)
 - [Extreme Gradient Boosting](https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/)
 #### Model Selection
-The performance of the above models can be judged based on the validation dataset. The results are below, so my best model is Light GBM.
+The performance of the above models can be judged based on the validation dataset. The results are below, so my best model is Random Forest.
 ```python
 {
 """
-Logit model validation Accuracy: 82.46%
-SVM model validation Accuracy: 82.84%
-DT model validation Accuracy: 83.58%
-RF model validation Accuracy: 83.58%
-LGB model validation Accuracy: 85.82%
-XGB model validation Accuracy: 82.84%  
+Logit model validation Accuracy: 70.00%
+RF model validation Accuracy: 88.1%
+XGB model validation Accuracy: 83.8%  
 """ 
 }
 ```
+
+![Age](Images/Results.PNG)
 ### 4.Scoring
 We now have a model, trained and validated. Recollect that we have been provided a `test` dataset to make predictions for the `future`. So we perform the same `data-preprocessing` steps on this as well and predict the `Survived` column. But, for this we can `train` our model on the `whole training` dataset and again and use that model so that we have more data to train our model.
 

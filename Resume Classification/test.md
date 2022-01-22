@@ -42,6 +42,22 @@ Furthermore lets looks at the bivariate analysis of the other varaibles with the
 ![Missing](Images/BiVariate.PNG)
 
 
+Some inferences that we can take from this graph,
+
+-We note that most job-seekers are Male. This is not all that surprising as in this dataset Males make up the majority of the sample population.
+
+-What is more interesting though is the City Development Index (CDI) chart. There we see that there are two peaks for job-seekers. The peaks are at high and low CDI scores.
+
+-We can ponder why this might be. In high CDI areas perhaps there are a lot of opportunities and therefore people feel encouraged to seek better roles.
+
+-Perhaps in lower CDI areas candidates want to improve their circumstances by searching for new jobs, maybe in new areas.
+
+-This is all conjecture, but interesting nonetheless.
+
+-It is also interesting to see that job-seekers have changed job more often that non-job seekers within that past 1 year, and also those that have never looked for a job also seem to be ready for a new challenge.
+
+-However it is only the graduate level people who have more job seekers when compared to other education levels. Some are even seeking a job in their primary school! (Start networking BAIMers)
+
 ### 1. Data Pre Processing
 Let us check for the ```missing values``` for each variable first, and then we will impute them with the appropriate methods. 
 ![Missing](images/Missing_Train.PNG)

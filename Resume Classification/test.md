@@ -1,8 +1,8 @@
-# Titanic Disaster - Survival Prediction
+# HR Analytics 
 
-This repository contains all the files of the kaggle competition, related to Titanic Disaster in 1912.
+This repository contains all the files of the HR Analytics project in Purdue
 
-![Titanic Sink](images/Titanic_Sink.jpg)
+
 # Table of Contents
 - [Overview](#overview)
 - [Data Dictionary](#data-dictionary)
@@ -22,10 +22,12 @@ This repository contains all the files of the kaggle competition, related to Tit
   - [4. Scoring](#4scoring)
   
 ## Overview
-The RMS Titanic sank in the early morning hours of ```15 April 1912``` in the North Atlantic Ocean, four days into her maiden voyage from Southampton to New York City. Though this is a disaster, we can use this data to ```learn how to handle such events in the future.```
+A company which is active in Big Data and Data Science wants to hire data scientists among people who successfully pass some courses which conduct by the company. Many people signup for their training. Company wants to know which of these candidates are really wants to work for the company after training or looking for a new employment because it helps to reduce the cost and time as well as the quality of training or planning the courses and categorization of candidates. Information related to demographics, education, experience are in hands from candidates signup and enrollment.
+
+This dataset designed to understand the factors that lead a person to leave current job for HR researches too. By model(s) that uses the current credentials,demographics,experience data you will predict the probability of a candidate to look for a new job or will work for the company, as well as interpreting affected factors on employee decision.
 
 ## Data Dictionary
-We have been provided with a ```Train (891 x 12)``` & ```Test (418 x 11)``` datasets. The dependant variable is `````"Survived"`````
+We have been provided with a ```Train (19158 x 14)``` & ```Test (2129 x 13)``` datasets. The dependant variable is `````"Target"`````
 ![Data Dictionary](images/Data_Dictionary.JPG)
   
 ## Variable Descriptions

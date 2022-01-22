@@ -39,7 +39,7 @@ Now that we have understood what the problem statement is, let us follow a metho
 
 ### 1. Data Pre Processing
 Let us check for the ```missing values``` for each variable first, and then we will impute them with the appropriate methods. 
-![Missing](images/Missing_Train.PNG)
+![Missing](Images/Nulls.PNG)
 
 #### Feature Elimination
 - Drop ```cabin``` variable due to high missing percentage

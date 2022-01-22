@@ -28,7 +28,7 @@ This dataset designed to understand the factors that lead a person to leave curr
 
 ## Data Dictionary
 We have been provided with a ```Train (19158 x 14)``` & ```Test (2129 x 13)``` datasets. The dependant variable is `````"Target"`````
-![Data Dictionary](Images/Data Dictionary.PNG)
+![Data Dictionary](Images/Data_Dictionary.PNG)
   
 ## Variable Descriptions
 We can see the ```variable descriptions``` below

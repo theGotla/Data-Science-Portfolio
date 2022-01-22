@@ -59,14 +59,14 @@ Some inferences that we can take from this graph,
 -However it is only the graduate level people who have more job seekers when compared to other education levels. Some are even seeking a job in their primary school! (Start networking BAIMers)
 
 ### 1. Data Pre Processing
-Let us check for the ```missing values``` for each variable first, and then we will impute them with the appropriate methods. 
-![Missing](images/Missing_Train.PNG)
 
-Furthermore, lets look at how the distribution is for the other variables for Job Vs Non-Job Seeker
+#### Target Class Imbalance
+We seem from the above EDA that there is a class imbalance and to solve this we used SMOTE as shown below-
+![Missing](Images/SMOTE.PNG)
 
 
 #### Missing Value Imputations (MVI)
-We have already dropped the ```cabin``` variable, so we have to impute the ```Age``` and ```Embarked``` variables. Age is a continuous variable and its distribution is below. From the figure we can say that ```Age``` is skewed.
+For treating the missing values we have used K-Nearest Neighbours imputation with a K=6 to impute the categorical and continuous variables.This method seemed more appropriate as compared to mean imputation(for continuous variables) or mode imputation
 ![Age](images/Age_Dist.PNG)
 
 I have used the median value of ```Age``` for a `passenger class` and `gender` to impute the missing values.

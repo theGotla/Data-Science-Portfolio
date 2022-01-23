@@ -8,13 +8,10 @@ This repository contains all the files of the HR Analytics project in Purdue
 - [Data Dictionary](#data-dictionary)
 - [Variable Descriptions](#variable-descriptions)
 - [Methodology](#methodology)
-  - [1. Data Processing](#1-data-pre-processing)
-    - [Feature Elimination](#feature-elimination)
-    - [Missing Value Imputation](#missing-value-imputations-mvi)
-  - [2. Feature Engineering](#2-feature-engineering)
-    - [Name Analysis](#name-analysis)
-    - [Group Variables](#group-categories)
-    - [Weight of Evidence](#weight-of-evidence)
+  - [1. Descriptive Analysis](#1-descriptive-analysis)
+  - [2. Data Pre Processing](#2-data-pre-processing)
+    - [Target Class Imbalance](#target-class-imbalance)
+    - [Missing Value Imputations](#missing-value-imputations-(mvi))
   - [3. Modeling](#3-modeling)
     - [Train & Validation Split](#train-and-validation-split)
     - [Train Multiple Models](#train-multiple-models)
@@ -27,14 +24,14 @@ A company which is active in Big Data and Data Science wants to hire data scient
 This dataset designed to understand the factors that lead a person to leave current job for HR researches too. By model(s) that uses the current credentials,demographics,experience data you will predict the probability of a candidate to look for a new job or will work for the company, as well as interpreting affected factors on employee decision.
 
 ## Data Dictionary
-We have been provided with a ```Train (19158 x 14)``` & ```Test (2129 x 13)``` datasets. The dependant variable is `````"Target"`````
+We have been provided with a ```Train (19158 x 14)``` & ```Test (2129 x 13)``` datasets. The dependant variable is `````"target"`````
 ![Data Dictionary](Images/Data_Dictionary.PNG)
   
 
 ## Methodology
 Now that we have understood what the problem statement is, let us follow a methodology to solve this. 
 
-### 0. Descriptive Analysis
+### 1. Descriptive Analysis
 Let us first look at the class distribution for the number of job seekers in our train data set as shown below-
 ![Missing](Images/Class_Distribution.PNG)
 
@@ -58,7 +55,7 @@ Some inferences that we can take from this graph,
 
 -However it is only the graduate level people who have more job seekers when compared to other education levels. Some are even seeking a job in their primary school! (Start networking BAIMers)
 
-### 1. Data Pre Processing
+### 2. Data Pre Processing
 
 #### Target Class Imbalance
 We seem from the above EDA that there is a class imbalance and to solve this we used SMOTE as shown below-
@@ -71,7 +68,7 @@ For treating the missing values we have used K-Nearest Neighbours imputation wit
 
 
 
-### 2. Modeling
+### 3. Modeling
 We have `cleaned` the data and `derived` some variables so that we can make better predictions. So let us `predict` now. But we need to follow some steps to make a robust model and `avoid over-fitting` the data.
 
 #### Train and Validation Split
@@ -94,7 +91,7 @@ XGB model validation Accuracy: 83.8%
 ```
 
 ![Age](Images/Results.PNG)
-### 3.Scoring
+### 4.Scoring
 We now have a model, trained and validated. Recollect that we have been provided a `test` dataset to make predictions for the `future`. So we perform the same `data-preprocessing` steps on this as well and predict the `Survived` column. But, for this we can `train` our model on the `whole training` dataset and again and use that model so that we have more data to train our model.
 
 We now `submit` the predictions and the `leaderboard score` tells the accuracy we have obtained on the test data. This whole modeling process is an `iterative` one because a `huge number parameters` are involved in the whole lifecycle.

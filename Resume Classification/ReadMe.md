@@ -1,25 +1,21 @@
-# HR Analytics 
+# Resume Classification
 
 This repository contains all the files of the HR Analytics project in Purdue
 
 
 # Table of Contents
 - [Overview](#overview)
-- [Data Dictionary](#data-dictionary)
-- [Variable Descriptions](#variable-descriptions)
 - [Methodology](#methodology)
-  - [1. Data Processing](#1-data-pre-processing)
-    - [Feature Elimination](#feature-elimination)
-    - [Missing Value Imputation](#missing-value-imputations-mvi)
-  - [2. Feature Engineering](#2-feature-engineering)
-    - [Name Analysis](#name-analysis)
-    - [Group Variables](#group-categories)
-    - [Weight of Evidence](#weight-of-evidence)
+  - [1. Data Collection](#1-data-collection)
+  - [2. Data Pre Processing](#2-data-pre-processing)
+    - [Data Normalisation](#data-normalisation)
+    - [Word Embedding](#word-embedding)
   - [3. Modeling](#3-modeling)
     - [Train & Validation Split](#train-and-validation-split)
     - [Train Multiple Models](#train-multiple-models)
     - [Model Selection](#model-selection)
-  - [4. Scoring](#4scoring)
+  - [4. Applying model on Craiglist Resumes](#4-applying-model-on-real-Craiglist-resumes)
+- [Business Outcome](#business-outcome)
   
 ## Overview
 Our client is craigslist, we are interested in improving ‘Resumes’ sub-section of the website.The reason we chose this is because, we believe that enhancing and solving some of the problems associated with this section could give competitive advantage to our client.As for the problem statement, we saw that the interface where the resumes are present is highly unstructured. When one opens the section, it is obvious that there is a lot of scope for improvement, as it is way behind craigslist competitors. As seen in the below picture, it’s very hard to understand which resume belongs to what industry.
@@ -37,7 +33,7 @@ Now that we have understood what the problem statement is, let us follow a metho
 ![Data Dictionary](Images/Methodology.PNG)
 
 
-### 0. Data Collection
+### 1. Data Collection
 The objective is to model the natural language and tag the corresponding resumes into different categories
 - To categorize the resumes, the data required for training the model is collected from two different data sources in Kaggle
 - The Data has 2317 labelled resumes and a total of 37 classes in the target variable, which was scraped using a tool called ‘ParseHub’
@@ -47,7 +43,7 @@ The objective is to model the natural language and tag the corresponding resumes
 
 ![Data Dictionary](Images/Job_categories.PNG)
 
-### 1. Data Pre Processing
+### 2. Data Pre Processing
 The Data analysis is the most important step for the natural language processing models. The following steps are carried out to convert the text into numerical representation/ vector representation
 ##### Data Normalisation
 - Tokenization (nltk.word_tokenize())
@@ -73,7 +69,7 @@ The logic of Tf-Idf vecorisation is shown as below
 
 
 
-### 2. Modeling
+### 3. Modeling
 We have `cleaned` and embedded the resumes using both the techniques shown above 
 #### Train and Validation Split
 The training data will be `randomly` split into `70:30` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
@@ -94,7 +90,7 @@ The performance of the above models can be judged based on the validation datase
 
 ![Age](Images/model_results.PNG)
 
-### 3.Applying model on real Craiglist resumes
+### 4.Applying model on real Craiglist resumes
 
 The XGBoost model was applied on real resumes as shown below on a sample resume-
 ![Age](Images/HR_resume.PNG)

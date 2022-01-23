@@ -97,8 +97,11 @@ The XGBoost model was applied on real resumes as shown below on a sample resume-
 
 ## Business Outcome
 With the given model the following tasks can be done
--Resume Based filer on the landing page as shown below -
+
+-Resume Based filer on the landing page as shown below :-
+
 ![Age](Images/recommendation.PNG)
+
 -Boost recruiter traffic on resume section
 
 

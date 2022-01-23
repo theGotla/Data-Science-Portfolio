@@ -43,12 +43,13 @@ The objective is to model the natural language and tag the corresponding resumes
 - The Data has 2317 labelled resumes and a total of 37 classes in the target variable, which was scraped using a tool called ‘ParseHub’
 - Those 37 variables include most from the white-collar jobs than the blue-collar jobs
 - The data required for testing the model is scraped from Craigslist
+- 70/30 Train/Validation Split
 
 ![Data Dictionary](Images/Job_categories.PNG)
 
 ### 1. Data Pre Processing
 The Data analysis is the most important step for the natural language processing models. The following steps are carried out to convert the text into numerical representation/ vector representation
-##### Data Nomralisation
+##### Data Normalisation
 - Tokenization (nltk.word_tokenize())
   - Tokenize the string and convert each word into tokens
   -  With this, each document is represented by a list of tokens
@@ -62,41 +63,47 @@ The Data analysis is the most important step for the natural language processing
 - Lemmatization  (nltk.stem.WordNetLemmatizer())
 
 
-#### Missing Value Imputations (MVI)
-For treating the missing values we have used K-Nearest Neighbours imputation with a K=6 to impute the categorical and continuous variables.This method seemed more appropriate as compared to mean imputation(for continuous variables) or mode imputation.
-![Age](Images/KNN.PNG)
+#### Word Embedding
+2 different word embedding techniques were used before modelleling as shown -
+-Tf-Idf 
+- Count Vectorizer
+
+The logic of Tf-Idf vecorisation is shown as below 
+![Data Dictionary](Images/TFIDF.PNG)
 
 
 
 ### 2. Modeling
-We have `cleaned` the data and `derived` some variables so that we can make better predictions. So let us `predict` now. But we need to follow some steps to make a robust model and `avoid over-fitting` the data.
-
+We have `cleaned` and embedded the resumes using both the techniques shown above 
 #### Train and Validation Split
-The training data will be `randomly` split into `75:25` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
+The training data will be `randomly` split into `70:30` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
 #### Train Multiple Models
-I have explored `three` different techniques to train the model. Click on the links for literature review.
+I have explored `eight` different techniques to train the model. Click on the links for literature review.
 - [Logistic Regression](https://www.analyticsvidhya.com/blog/2021/03/logistic-regression/)
 - [Random Forest](https://www.analyticsvidhya.com/blog/2021/03/introduction-to-random-forest-and-its-hyper-parameters/)
-- [Extreme Gradient Boosting](https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/)
+- [Extreme Gradient Boosting](https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost
+- [Naive Bayes](https://www.analyticsvidhya.com/blog/2021/01/a-guide-to-the-naive-bayes-algorithm/)
+- [Decision Tree](https://www.analyticsvidhya.com/blog/2016/04/tree-based-algorithms-complete-tutorial-scratch-in-python/)
+- [CAT boost](https://www.analyticsvidhya.com/blog/2021/04/how-to-use-catboost-for-mental-fatigue-score-prediction/)
+- [Light GBM](https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/)
+- [ANN](https://www.analyticsvidhya.com/blog/2021/05/beginners-guide-to-artificial-neural-network/)
+
+
 #### Model Selection
-The performance of the above models can be judged based on the validation dataset. The results are below, so my best model is Random Forest.
-```python
-{
-"""
-Logit model validation Accuracy: 70.00%
-RF model validation Accuracy: 88.1%
-XGB model validation Accuracy: 83.8%  
-""" 
-}
-```
+The performance of the above models can be judged based on the validation dataset. The results are below, so my best model is XGBoost using Tf-Idf vector as shown 
 
-![Age](Images/Results.PNG)
-### 3.Scoring
-We now have a model, trained and validated. Recollect that we have been provided a `test` dataset to make predictions for the `future`. So we perform the same `data-preprocessing` steps on this as well and predict the `Survived` column. But, for this we can `train` our model on the `whole training` dataset and again and use that model so that we have more data to train our model.
+![Age](Images/model_results.PNG)
 
-We now `submit` the predictions and the `leaderboard score` tells the accuracy we have obtained on the test data. This whole modeling process is an `iterative` one because a `huge number parameters` are involved in the whole lifecycle.
+### 3.Applying model on real Craiglist resumes
 
-This project has been a great starting point for me. Hopefully it is the same for the readers as well. Thanks!
+The XGBoost model was applied on real resumes as shown below on a sample resume-
+![Age](Images/HR_resume.PNG)
+
+## Business Outcome
+With the given model the following tasks can be done
+-Resume Based filer on the landing page as shown below -
+![Age](Images/recommendation.PNG)
+-Boost recruiter traffic on resume section
 
 
 

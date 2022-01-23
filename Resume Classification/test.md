@@ -50,14 +50,14 @@ The objective is to model the natural language and tag the corresponding resumes
 The Data analysis is the most important step for the natural language processing models. The following steps are carried out to convert the text into numerical representation/ vector representation
 ##### Data Nomralisation
 - Tokenization (nltk.word_tokenize())
-a. Tokenize the string and convert each word into tokens
-b. With this, each document is represented by a list of tokens
+  - Tokenize the string and convert each word into tokens
+  -  With this, each document is represented by a list of tokens
 - Removing URL
-a. URLs are to be removed as most of the resumes contain a link to their LinkedIn profile
+  -  URLs are to be removed as most of the resumes contain a link to their LinkedIn profile
 - Hashtag mentions
-a. There could be lot of hashtags which we removed using regular expression
+  - There could be lot of hashtags which we removed using regular expression
 - Extra White spaces
-a. Extra whitespaces have also been removed
+  - Extra whitespaces have also been removed
 - Stop words removal
 - Lemmatization  (nltk.stem.WordNetLemmatizer())
 

@@ -39,10 +39,10 @@ Now that we have understood what the problem statement is, let us follow a metho
 
 ### 0. Data Collection
 The objective is to model the natural language and tag the corresponding resumes into different categories
-• To categorize the resumes, the data required for training the model is collected from two different data sources in Kaggle
-• The Data has 2317 labelled resumes and a total of 37 classes in the target variable, which was scraped using a tool called ‘ParseHub’
-• Those 37 variables include most from the white-collar jobs than the blue-collar jobs
-• The data required for testing the model is scrapped from Craigslist
+- To categorize the resumes, the data required for training the model is collected from two different data sources in Kaggle
+- The Data has 2317 labelled resumes and a total of 37 classes in the target variable, which was scraped using a tool called ‘ParseHub’
+- Those 37 variables include most from the white-collar jobs than the blue-collar jobs
+- The data required for testing the model is scrapped from Craigslist
 
 ### 1. Data Pre Processing
 The Data analysis is the most important step for the natural language processing models. The following steps are carried out to convert the text into numerical representation/ vector representation

@@ -24,45 +24,28 @@ This repository contains all the files of the HR Analytics project in Purdue
 ## Overview
 Our client is craigslist, we are interested in improving ‘Resumes’ sub-section of the website.The reason we chose this is because, we believe that enhancing and solving some of the problems associated with this section could give competitive advantage to our client.As for the problem statement, we saw that the interface where the resumes are present is highly unstructured. When one opens the section, it is obvious that there is a lot of scope for improvement, as it is way behind craigslist competitors. As seen in the below picture, it’s very hard to understand which resume belongs to what industry.
 
+
 ![Data Dictionary](Images/Unstructured_resume.PNG)
 
 It is harder for recruiters to find what they are looking for and we know that the recruiters don’t prefer to spend much time on any website, this will make the engagement loss on both ends, from recruiters’ side and candidate’s side. There is a high probability that the churn rate can be increased because of these factors.
 When one looks at Indeed, LinkedIn and Facebook marketplace, to survive in the market, it’s important to have a competitive edge.
 
-## Data Dictionary
-We have been provided with a ```Train (19158 x 14)``` & ```Test (2129 x 13)``` datasets. The dependant variable is `````"Target"`````
-![Data Dictionary](Images/Data_Dictionary.PNG)
-  
+
 
 ## Methodology
-Now that we have understood what the problem statement is, let us follow a methodology to solve this. 
-
-### 0. Descriptive Analysis
-Let us first look at the class distribution for the number of job seekers in our train data set as shown below-
-![Missing](Images/Class_Distribution.PNG)
-
-Furthermore lets looks at the bivariate analysis of the other varaibles with the target variable
-![Missing](Images/BiVariate.PNG)
+Now that we have understood what the problem statement is, let us follow a methodology to solve this. We will follow the below steps
+![Data Dictionary](Images/Methodology.PNG)
 
 
-Some inferences that we can take from this graph,
-
--We note that most job-seekers are Male. This is not all that surprising as in this dataset Males make up the majority of the sample population.
-
--What is more interesting though is the City Development Index (CDI) chart. There we see that there are two peaks for job-seekers. The peaks are at high and low CDI scores.
-
--We can ponder why this might be. In high CDI areas perhaps there are a lot of opportunities and therefore people feel encouraged to seek better roles.
-
--Perhaps in lower CDI areas candidates want to improve their circumstances by searching for new jobs, maybe in new areas.
-
--This is all conjecture, but interesting nonetheless.
-
--It is also interesting to see that job-seekers have changed job more often that non-job seekers within that past 1 year, and also those that have never looked for a job also seem to be ready for a new challenge.
-
--However it is only the graduate level people who have more job seekers when compared to other education levels. Some are even seeking a job in their primary school! (Start networking BAIMers)
+### 0. Data Collection
+The objective is to model the natural language and tag the corresponding resumes into different categories
+• To categorize the resumes, the data required for training the model is collected from two different data sources in Kaggle
+• The Data has 2317 labelled resumes and a total of 37 classes in the target variable, which was scraped using a tool called ‘ParseHub’
+• Those 37 variables include most from the white-collar jobs than the blue-collar jobs
+• The data required for testing the model is scrapped from Craigslist
 
 ### 1. Data Pre Processing
-
+The Data analysis is the most important step for the natural language processing models. The following steps are carried out to convert the text into numerical representation/ vector representation
 #### Target Class Imbalance
 We seem from the above EDA that there is a class imbalance and to solve this we used SMOTE as shown below-
 ![Missing](Images/SMOTE.PNG)

@@ -42,13 +42,24 @@ The objective is to model the natural language and tag the corresponding resumes
 - To categorize the resumes, the data required for training the model is collected from two different data sources in Kaggle
 - The Data has 2317 labelled resumes and a total of 37 classes in the target variable, which was scraped using a tool called ‘ParseHub’
 - Those 37 variables include most from the white-collar jobs than the blue-collar jobs
-- The data required for testing the model is scrapped from Craigslist
+- The data required for testing the model is scraped from Craigslist
+
+![Data Dictionary](Images/Job_categories.PNG)
 
 ### 1. Data Pre Processing
 The Data analysis is the most important step for the natural language processing models. The following steps are carried out to convert the text into numerical representation/ vector representation
-#### Target Class Imbalance
-We seem from the above EDA that there is a class imbalance and to solve this we used SMOTE as shown below-
-![Missing](Images/SMOTE.PNG)
+##### Data Nomralisation
+- Tokenization (nltk.word_tokenize())
+a. Tokenize the string and convert each word into tokens
+b. With this, each document is represented by a list of tokens
+- Removing URL
+a. URLs are to be removed as most of the resumes contain a link to their LinkedIn profile
+- Hashtag mentions
+a. There could be lot of hashtags which we removed using regular expression
+- Extra White spaces
+a. Extra whitespaces have also been removed
+- Stop words removal
+- Lemmatization  (nltk.stem.WordNetLemmatizer())
 
 
 #### Missing Value Imputations (MVI)

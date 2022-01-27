@@ -60,8 +60,8 @@ The Data analysis is the most important step for the natural language processing
 
 
 #### Word Embedding
-2 different word embedding techniques were used before modelleling as shown -
--Tf-Idf 
+2 different word embedding techniques were used before modelleling as shown 
+- Tf-Idf 
 - Count Vectorizer
 
 The logic of Tf-Idf vecorisation is shown as below 

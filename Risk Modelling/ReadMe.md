@@ -30,11 +30,11 @@ We have been provided with a ```Train (10000 x 24)```  and ```Test (5000 x 23)``
 Now that we have understood what the problem statement is, let us follow a methodology to solve this. 
 
 ### 1. Descriptive Analysis
-Let us first look at the class distribution for the number of job seekers in our train data set as shown below-
-![Missing](Images/Class_Distribution.PNG)
+Let us first look at the class distribution for the number of people defaulting.AS one can see approx 25% of the data has default = 1 
+![Missing](Images/Defualt_dist.PNG)
 
-Furthermore lets looks at the bivariate analysis of the other varaibles with the target variable
-![Missing](Images/BiVariate.PNG)
+Furthermore lets looks at the other variables like the limit vairable which seems to right skewed
+![Missing](Images/Limit_countplot.PNG)
 
 
 Some inferences that we can take from this graph,

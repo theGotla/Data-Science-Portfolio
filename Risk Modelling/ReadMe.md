@@ -68,7 +68,7 @@ we used an ensemble of 3 different gradient boosting algorithms –
 The idea of the above logic was to balance out the `bias -variance` tradeoff and to create a robust model that would do decently well on most data sets
 #### Model Performance
 The overall model looked like this in the SAS EM viewer
-![Missing](Images/Overall_model.PNG)
+![Missing](Images/Overall_model.png)
 
 The model did well on the private as well as public leaderboard with an AUC of 75% as seen below
 ![Missing](Images/Scoring.PNG)

@@ -31,70 +31,52 @@ Now that we have understood what the problem statement is, let us follow a metho
 
 ### 1. Descriptive Analysis
 Let us first look at the class distribution for the number of people defaulting.AS one can see approx 25% of the data has default = 1 
-![Missing](Images/Defualt_dist.PNG)
+![Missing](Images/Default_dist.PNG)
 
 Furthermore lets looks at the other variables like the limit vairable which seems to right skewed
 ![Missing](Images/Limit_countplot.PNG)
+Even other variables like Payment and Statement are highly skewed as seen below - 
+![Missing](Images/Statement.PNG)
+![Missing](Images/Payment.PNG)
 
+Now lets do a  bivariate analysis of the other categorical variables wrt to Default
+![Missing](Images/BiVariate_categorical.PNG)
 
-Some inferences that we can take from this graph,
-
--We note that most job-seekers are Male. This is not all that surprising as in this dataset Males make up the majority of the sample population.
-
--What is more interesting though is the City Development Index (CDI) chart. There we see that there are two peaks for job-seekers. The peaks are at high and low CDI scores.
-
--We can ponder why this might be. In high CDI areas perhaps there are a lot of opportunities and therefore people feel encouraged to seek better roles.
-
--Perhaps in lower CDI areas candidates want to improve their circumstances by searching for new jobs, maybe in new areas.
-
--This is all conjecture, but interesting nonetheless.
-
--It is also interesting to see that job-seekers have changed job more often that non-job seekers within that past 1 year, and also those that have never looked for a job also seem to be ready for a new challenge.
-
--However it is only the graduate level people who have more job seekers when compared to other education levels. Some are even seeking a job in their primary school! (Start networking BAIMers)
 
 ### 2. Data Pre Processing
 
-#### Target Class Imbalance
-We seem from the above EDA that there is a class imbalance and to solve this we used SMOTE as shown below-
-![Missing](Images/SMOTE.PNG)
-
-
-#### Missing Value Imputations (MVI)
-For treating the missing values we have used K-Nearest Neighbours imputation with a K=6 to impute the categorical and continuous variables.This method seemed more appropriate as compared to mean imputation(for continuous variables) or mode imputation.
-![Age](Images/KNN.PNG)
-
-
-
+#### Variable Creation
+A new variable was created namely % of statement paid = Payment/Statement
+![Missing](Images/Transformation.PNG)
+### Data Transformation 
+SAS EM's 'best' method was used for transforming the Statement variable with dummy indicators being used for categorical variables as shown-
+![Missing](Images/Real_trans.PNG)
 ### 3. Modeling
 We have `cleaned` the data and `derived` some variables so that we can make better predictions. So let us `predict` now. But we need to follow some steps to make a robust model and `avoid over-fitting` the data.
 
 #### Train and Validation Split
-The training data will be `randomly` split into `75:25` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
-#### Train Multiple Models
-I have explored `three` different techniques to train the model. Click on the links for literature review.
-- [Logistic Regression](https://www.analyticsvidhya.com/blog/2021/03/logistic-regression/)
-- [Random Forest](https://www.analyticsvidhya.com/blog/2021/03/introduction-to-random-forest-and-its-hyper-parameters/)
-- [Extreme Gradient Boosting](https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/)
-#### Model Selection
-The performance of the above models can be judged based on the validation dataset. The results are below, so my best model is Random Forest.
-```python
-{
-"""
-Logit model validation Accuracy: 70.00%
-RF model validation Accuracy: 88.1%
-XGB model validation Accuracy: 83.8%  
-""" 
-}
-```
+The training data will be `randomly` split into `80:20` ratio into `training` and `validation` datasets. We now use the first one to train our model, and the validation data to validate our model's accuracy.
+#### Train Ensemble Models
+we used an ensemble of 3 different gradient boosting algorithms –
+- An overfitting Algorithm with the following hyperparameters
+![Missing](Images/Overfitting_model.PNG)
+-	An underfitting Algorithm with the following hyperparameters
+![Missing](Images/Underfitting_model.PNG)
+-	A normal Algorithm with the following hyperparameters
+![Missing](Images/Normal_fit.PNG)
 
-![Age](Images/Results.PNG)
+The idea of the above logic was to balance out the `bias -variance` tradeoff and to create a robust model that would do decently well on most data sets
+#### Model Performance
+The overall model looked like this in the SAS EM viewer
+![Missing](Images/Overall_model.PNG)
+
+The model did well on the private as well as public leaderboard with an AUC of 75% as seen below
+![Missing](Images/Scoring.PNG)
 ### 4.Scoring
 We now have a model, trained and validated. Recollect that we have been provided a `test` dataset to make predictions for the `future`. So we perform the same `data-preprocessing` steps on this as well and predict the `Survived` column. But, for this we can `train` our model on the `whole training` dataset and again and use that model so that we have more data to train our model.
 
 We now `submit` the predictions and the `leaderboard score` tells the accuracy we have obtained on the test data. This whole modeling process is an `iterative` one because a `huge number parameters` are involved in the whole lifecycle.
 
-This project has been a great starting point for me. Hopefully it is the same for the readers as well. Thanks!
 
 
 
